@@ -87,9 +87,29 @@ const upperCasedCharacters = [
   "Y",
   "Z",
 ];
+//Star by creating a variable that will store the generated password in a variable:
+
+const generatePass = " ";
 
 // Function to prompt user for password options
-function getPasswordOptions() {}
+function getPasswordOptions() {
+  //inside the fuction  ask the user for a pasword with caracters lenght between 8 and 128 .
+
+  let passwordLenght = parseInt(
+    prompt(
+      "Enter the password lenght(make sure it's not less then 8 caracters and no more than 128):"
+    )
+  );
+
+  //If password does't have minim 8 caracters and max 128 the alert the user. If the user's input is out of range, either return out of the function or call the function again
+
+  if (passwordLenght < 8 || passwordLenght > 128 || isNaN(passwordLenght)) {
+    alert("Your entered password length is not valid. Try again!");
+    return getPasswordOptions();
+  }
+}
+
+getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
