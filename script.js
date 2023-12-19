@@ -117,7 +117,7 @@ function getPasswordOptions() {
     uppercase: confirm("Include uppercase characters?"),
   };
 
-  //If it doesn't have special caracters alert them then return to the fucntion getPasswordOptions().
+  //If it doesn't have special caracters alert them then return to the function getPasswordOptions().
   if (
     !(
       characterPrompts.special ||
@@ -143,5 +143,4 @@ function getRandom(arr) {
   return arr[randomIndex];
 }
 
-
-//Function that gegenerates 
+//Function that gegenerates
