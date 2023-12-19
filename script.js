@@ -108,6 +108,8 @@ function getPasswordOptions() {
     return getPasswordOptions();
   }
 
+  //Confirm with the user if the password has special caracters using confirm method.
+
   const includeSpecialCharacter = confirm(
     "Does the password include special characters?"
   );
@@ -120,23 +122,32 @@ function getPasswordOptions() {
   const includeUppercaseCharacter = confirm(
     "Does the password include uppercase characters?"
   );
+
+  //If it doesn't have special caracters alert them then return to the fucntion getPasswordOptions().
+
+  if (
+    !includeLowercaseCharacter &&
+    !includeUppercaseCharacter &&
+    !includeSpecialCharacter &&
+    !includeNumericCharacter
+  ) {
+    alert(
+      "Enter a  character type (lower case, numerical, special characrter, or upper case)"
+    );
+    return getPasswordOptions();
+  }
+
+  const passwordOptions = {
+    passwordLenght,
+    includeSpecialCharacter,
+    includeNumericCharacter,
+    includeLowercaseCharacter,
+  };
+  return passwordOptions;
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {}
-
-// Function to generate password with user input
-function generatePassword() {}
-
-// Get references to the #generate element
-const generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  const password = generatePassword();
-  const passwordText = document.querySelector("#password");
-  passwordText.value = password;
+// Generate a random index.
+function getRandom(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
