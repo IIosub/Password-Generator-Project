@@ -107,9 +107,20 @@ function getPasswordOptions() {
     alert("Your entered password length is not valid. Try again!");
     return getPasswordOptions();
   }
-}
 
-getPasswordOptions();
+  const includeSpecialCharacter = confirm(
+    "Does the password include special characters?"
+  );
+  const includeNumericCharacter = confirm(
+    " Does the password include numeric characters?"
+  );
+  const includeLowercaseCharacter = confirm(
+    " Does the password include lowercase characters?"
+  );
+  const includeUppercaseCharacter = confirm(
+    "Does the password include uppercase characters?"
+  );
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
@@ -124,7 +135,6 @@ const generateBtn = document.querySelector("#generate");
 function writePassword() {
   const password = generatePassword();
   const passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
