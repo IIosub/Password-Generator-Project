@@ -78,3 +78,17 @@ You are required to submit the following for review:
 
 ##UserStory
 As a software developer I'am required to create an application that an employee can use to generate a random password
+
+##AcceptanceCriteria
+
+- It is done when generats a password when the button is clicked.
+
+- It is done when it present a series of prompts for password criteria.
+
+- It is done when there are least 8 characters but no more than 128.
+
+- It is done when password contains any of the Character types - Lowercase - Uppercase - Numeric - Special characters ($@%&\*, etc)
+
+- It is done when validate for each input and at least one character type should be selected
+
+- It is done when once prompts are answered then the password should be generated and displayed in an alert or written to the page
