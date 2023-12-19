@@ -110,40 +110,31 @@ function getPasswordOptions() {
 
   //Confirm with the user if the password has special caracters using confirm method.
 
-  const includeSpecialCharacter = confirm(
-    "Does the password include special characters?"
-  );
-  const includeNumericCharacter = confirm(
-    " Does the password include numeric characters?"
-  );
-  const includeLowercaseCharacter = confirm(
-    " Does the password include lowercase characters?"
-  );
-  const includeUppercaseCharacter = confirm(
-    "Does the password include uppercase characters?"
-  );
+  const characterPrompts = {
+    special: confirm("Include special characters?"),
+    numeric: confirm("Include numeric characters?"),
+    lowercase: confirm("Include lowercase characters?"),
+    uppercase: confirm("Include uppercase characters?"),
+  };
 
   //If it doesn't have special caracters alert them then return to the fucntion getPasswordOptions().
-
   if (
-    !includeLowercaseCharacter &&
-    !includeUppercaseCharacter &&
-    !includeSpecialCharacter &&
-    !includeNumericCharacter
+    !(
+      characterPrompts.special ||
+      characterPrompts.numeric ||
+      characterPrompts.lowercase ||
+      characterPrompts.uppercase
+    )
   ) {
     alert(
-      "Enter a  character type (lower case, numerical, special characrter, or upper case)"
+      "Enter a  character type (lowercase, numerical, special characrter, or uppercase)"
     );
     return getPasswordOptions();
   }
-
-  const passwordOptions = {
-    passwordLenght,
-    includeSpecialCharacter,
-    includeNumericCharacter,
-    includeLowercaseCharacter,
+  return {
+    length,
+    characterPrompts,
   };
-  return passwordOptions;
 }
 
 // Generate a random index.
@@ -151,3 +142,6 @@ function getRandom(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
+
+
+//Function that gegenerates 

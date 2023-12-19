@@ -75,3 +75,6 @@ You are required to submit the following for review:
 ---
 
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+##UserStory
+As a software developer I'am required to create an application that an employee can use to generate a random password
