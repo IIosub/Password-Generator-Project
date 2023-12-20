@@ -87,9 +87,6 @@ const upperCasedCharacters = [
   "Y",
   "Z",
 ];
-//Star by creating a variable that will store the generated password in a variable:
-
-const generatePass = " ";
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -103,7 +100,7 @@ function getPasswordOptions() {
 
   //If password does't have minim 8 caracters and max 128 the alert the user. If the user's input is out of range, either return out of the function or call the function again
 
-  if (passwordLenght < 8 || passwordLenght > 128 || isNaN(passwordLenght)) {
+  if (isNaN(passwordLenght) || passwordLenght < 8 || passwordLenght > 128) {
     alert("Your entered password length is not valid. Try again!");
     return getPasswordOptions();
   }
@@ -111,28 +108,27 @@ function getPasswordOptions() {
   //Confirm with the user if the password has special caracters using confirm method.
 
   const characterPrompts = {
-    special: confirm("Include special characters?"),
-    numeric: confirm("Include numeric characters?"),
-    lowercase: confirm("Include lowercase characters?"),
-    uppercase: confirm("Include uppercase characters?"),
+    special: confirm("Should include special characters?"),
+    numeric: confirm("Should include numeric characters?"),
+    lowercase: confirm("Should include lowercase characters?"),
+    uppercase: confirm("Should include uppercase characters?"),
   };
 
   //If it doesn't have special caracters alert them then return to the function getPasswordOptions().
   if (
-    !(
-      characterPrompts.special ||
-      characterPrompts.numeric ||
-      characterPrompts.lowercase ||
-      characterPrompts.uppercase
-    )
+    !characterPrompts.special &&
+    !characterPrompts.numeric &&
+    !characterPrompts.lowercase &&
+    !characterPrompts.uppercase
   ) {
     alert(
       "Enter a  character type (lowercase, numerical, special characrter, or uppercase)"
     );
     return getPasswordOptions();
   }
+
   return {
-    length,
+    length: passwordLenght,
     characterPrompts,
   };
 }
@@ -144,3 +140,42 @@ function getRandom(arr) {
 }
 
 //Function that gegenerates
+
+function generatePassword() {
+  const options = getPasswordOptions();
+  //create a variable that will store the generated password in a variable
+  let password = "";
+  //create a variable that will store the selected characters
+  const selectedCharacters = [];
+
+  //
+  if (options.characterPrompts.special) {
+    selectedCharacters.push(...specialCharacters);
+  }
+  if (options.characterPrompts.numeric) {
+    selectedCharacters.push(...numericCharacters);
+  }
+  if (options.characterPrompts.lowercase) {
+    selectedCharacters.push(...lowerCasedCharacters);
+  }
+  if (options.characterPrompts.uppercase) {
+    selectedCharacters.push(...upperCasedCharacters);
+  }
+
+  for (let i = 0; i < options.length; i++) {
+    password += getRandom(selectedCharacters);
+  }
+
+  return password;
+}
+
+const generateBtn = document.querySelector("#generate");
+const passwordText = document.querySelector("#password");
+
+function writePassword() {
+  const password = generatePassword();
+
+  passwordText.value = password;
+}
+
+generateBtn.addEventListener("click", writePassword);
