@@ -148,7 +148,7 @@ function generatePassword() {
   //create a variable that will store the selected characters
   const selectedCharacters = [];
 
-  //
+  //Check what character the user chose and if true then push into selecteCharacters  array.
   if (options.characterPrompts.special) {
     selectedCharacters.push(...specialCharacters);
   }
@@ -162,20 +162,21 @@ function generatePassword() {
     selectedCharacters.push(...upperCasedCharacters);
   }
 
+  //Loop throuhh obtions and select a random character then apend it to the password string/
   for (let i = 0; i < options.length; i++) {
     password += getRandom(selectedCharacters);
   }
-
   return password;
 }
 
+//create variables that selects from the DOM the textarea and the buttin
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
 
 function writePassword() {
   const password = generatePassword();
-
   passwordText.value = password;
 }
 
+//When button is clicked call the function writePassword
 generateBtn.addEventListener("click", writePassword);
