@@ -31,3 +31,14 @@ As a software developer I'am required to create an application that an employee 
 ---
 
 - Create a function that generate a random index.
+
+
+##ShootScreen
+
+![screencapture-127-0-0-1-3000-index-html-2023-12-20-19_26_37](https://github.com/IIosub/Password-Generator-Project/assets/114613610/dc8d8ca2-c4bc-4c03-bc05-4b14df4f26ba)
+
+
+##ProjectURL
+
+https://iiosub.github.io/Password-Generator-Project/
+
