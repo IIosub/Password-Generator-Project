@@ -145,7 +145,7 @@ function generatePassword() {
   const options = getPasswordOptions();
   //create a variable that will store the generated password in a variable
   let password = "";
-  //create a variable that will store the selected characters
+  //create a array that will store the selected characters
   const selectedCharacters = [];
 
   //Check what character the user chose and if true then push into selecteCharacters  array.
@@ -169,7 +169,7 @@ function generatePassword() {
   return password;
 }
 
-//create variables that selects from the DOM the textarea and the buttin
+//create variables that selects from the DOM the textarea and the button and the password area
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
 

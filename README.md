@@ -28,17 +28,24 @@ As a software developer I'am required to create an application that an employee 
 
 - If it doesn't have special caracters alert them then return to the fucntion getPasswordOptions().
 
----
+- Create a function that generate a random index using math.random()
 
-- Create a function that generate a random index.
+- Create a function that generates the actual password, inside create a variable that will store the generated password in a variable and an array that will store the selected characters.
 
+- Check what character the user chose and if true then push into selecteCharacters array.
+
+- Loop throuhh obtions and select a random character then apend it to the password string
+
+- Create variables that selects from the DOM the textarea and the button and the password area
+
+- Handle the password generation and update the displayed password when the button is clicked.
+
+- When button is clicked call the function writePassword
 
 ##ShootScreen
 
 ![screencapture-127-0-0-1-3000-index-html-2023-12-20-19_26_37](https://github.com/IIosub/Password-Generator-Project/assets/114613610/dc8d8ca2-c4bc-4c03-bc05-4b14df4f26ba)
 
-
 ##ProjectURL
 
 https://iiosub.github.io/Password-Generator-Project/
-
